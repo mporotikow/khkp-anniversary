@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NoOverscroll from "./components/NoOverscroll";
+import PhoneFrame from "./components/PhoneFrame";
 
 export const metadata: Metadata = {
-  title: "3 роки Християнського Клубу Підприємців",
+  title: "Християнський Клуб Підприємців",
   description:
     "Запрошення на святкування 3-річчя ХКП — 18 квітня, Київ. Час єдності, вдячності та нового бачення.",
 };
@@ -15,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body>
-        <div id="scroll-root">{children}</div>
+        <NoOverscroll />
+        <PhoneFrame>
+          {children}
+        </PhoneFrame>
       </body>
     </html>
   );

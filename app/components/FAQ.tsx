@@ -18,9 +18,17 @@ const faqs = [
   },
 ];
 
-function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
-  const [open, setOpen] = useState(false);
-
+function FAQItem({
+  faq,
+  index,
+  isOpen,
+  onToggle,
+}: {
+  faq: (typeof faqs)[0];
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -29,9 +37,9 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
       className="border-b border-white/10 last:border-0"
     >
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 py-5 text-left"
-        aria-expanded={open}
+        aria-expanded={isOpen}
       >
         <span
           className="text-white text-base"
@@ -40,7 +48,7 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
           {faq.q}
         </span>
         <motion.span
-          animate={{ rotate: open ? 45 : 0 }}
+          animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.25 }}
           className="flex-shrink-0 text-accent-blue"
         >
@@ -52,17 +60,13 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
             viewBox="0 0 24 24"
             aria-hidden="true"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 4.5v15m7.5-7.5h-15"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
         </motion.span>
       </button>
 
       <AnimatePresence initial={false}>
-        {open && (
+        {isOpen && (
           <motion.div
             key="answer"
             initial={{ height: 0, opacity: 0 }}
@@ -87,6 +91,7 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
 export default function FAQ() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <section
@@ -116,7 +121,13 @@ export default function FAQ() {
 
       <div className="rounded-2xl border border-white/10 bg-white/5 px-6">
         {faqs.map((faq, i) => (
-          <FAQItem key={faq.q} faq={faq} index={i} />
+          <FAQItem
+            key={faq.q}
+            faq={faq}
+            index={i}
+            isOpen={activeIndex === i}
+            onToggle={() => setActiveIndex(activeIndex === i ? null : i)}
+          />
         ))}
       </div>
     </section>

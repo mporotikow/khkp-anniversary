@@ -21,7 +21,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="space-y-4 text-left"
+          className="text-left"
         >
           <span
             className="text-accent-olive text-sm uppercase tracking-widest"
@@ -30,14 +30,14 @@ export default function Footer() {
             Приєднуйтесь
           </span>
           <h2
-            className="text-2xl sm:text-3xl md:text-4xl text-white"
+            className="mt-3 text-3xl sm:text-4xl md:text-5xl leading-tight text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Зустрінемося<br />
             <span className="text-accent-blue">18 квітня</span>
           </h2>
           <p
-            className="text-white/60 text-base max-w-sm"
+            className="mt-6 text-white/60 text-base max-w-sm"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             Київ, проспект Берестейський 114/2<br />початок о 12:00

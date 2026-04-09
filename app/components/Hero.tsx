@@ -75,11 +75,14 @@ export default function Hero() {
           Час єдності, вдячності та нового бачення
         </motion.p>
 
-        <motion.p
+        <motion.a
+          href="https://maps.google.com/maps?q=проспект+Берестейський+114/2,+Київ"
+          target="_blank"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex items-center gap-2 text-sm text-white/60 mb-7"
+          className="flex items-center gap-2 text-sm text-white/60 mb-7 hover:text-accent-blue transition-colors"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
           <svg
@@ -94,7 +97,7 @@ export default function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
           </svg>
           Київ, проспект Берестейський 114/2
-        </motion.p>
+        </motion.a>
 
         <motion.a
           href={REGISTER_URL}
