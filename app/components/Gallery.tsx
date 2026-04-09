@@ -128,7 +128,7 @@ export default function Gallery() {
             {ITEMS.map((item, i) => (
               <motion.div
                 key={i}
-                className="flex-shrink-0 aspect-square rounded-xl overflow-hidden border border-primary/10 flex items-center justify-center pointer-events-none"
+                className="flex-shrink-0 aspect-square rounded-xl overflow-hidden border border-primary/10 flex items-center justify-center"
                 style={{
                   background: item.bg,
                   width: itemWidth ? `${itemWidth - 12}px` : "80vw",

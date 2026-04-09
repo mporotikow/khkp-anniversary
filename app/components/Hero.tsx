@@ -7,7 +7,7 @@ const REGISTER_URL =
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
+    <section className="relative flex flex-col justify-end overflow-hidden" style={{ minHeight: "100dvh" }}>
       {/* Full-screen background photo placeholder */}
       <div
         className="absolute inset-0"
@@ -61,7 +61,7 @@ export default function Hero() {
           className="text-3xl leading-tight sm:text-4xl md:text-5xl text-white mb-4"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Християнському Клубу Підприємців —<br />
+          Християнському Клубу Підприємців<br />
           <span className="text-accent-blue">3 роки</span>
         </motion.h1>
 
