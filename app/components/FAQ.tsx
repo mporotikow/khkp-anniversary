@@ -90,7 +90,7 @@ function FAQItem({
 
 export default function FAQ() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-320px" });
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
