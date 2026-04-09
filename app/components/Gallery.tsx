@@ -19,7 +19,7 @@ const OFFSET = N;
 export default function Gallery() {
   const sectionRef = useRef(null);
   const trackRef   = useRef<HTMLDivElement>(null);
-  const inView     = useInView(sectionRef, { once: true, margin: "-320px" });
+  const inView     = useInView(sectionRef, { once: true, margin: "-120px" });
 
   const x         = useMotionValue(0);
   const slideWRef = useRef(0);

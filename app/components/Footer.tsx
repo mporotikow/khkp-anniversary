@@ -8,7 +8,7 @@ const REGISTER_URL =
 
 export default function Footer() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-320px" });
+  const inView = useInView(ref, { once: true, margin: "-120px" });
 
   return (
     <footer

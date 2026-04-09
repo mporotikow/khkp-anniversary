@@ -68,7 +68,7 @@ const items = [
 
 export default function About() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-320px" });
+  const inView = useInView(ref, { once: true, margin: "-120px" });
 
   return (
     <section
