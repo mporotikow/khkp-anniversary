@@ -82,7 +82,7 @@ export default function About() {
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-12"
+          className="mb-6"
         >
           <span
             className="text-accent-olive text-sm uppercase tracking-widest"
