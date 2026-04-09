@@ -13,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className="h-full">
-      <body className="min-h-full">{children}</body>
+    <html lang="uk">
+      <body>
+        <div id="scroll-root">{children}</div>
+      </body>
     </html>
   );
 }

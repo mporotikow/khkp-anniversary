@@ -33,14 +33,14 @@ export default function Footer() {
             className="text-2xl sm:text-3xl md:text-4xl text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Зустрінемося&nbsp;
+            Зустрінемося<br />
             <span className="text-accent-blue">18 квітня</span>
           </h2>
           <p
             className="text-white/60 text-base max-w-sm"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            Київ, проспект Берестейський 114/2 · початок о 12:00
+            Київ, проспект Берестейський 114/2<br />початок о 12:00
           </p>
         </motion.div>
 
@@ -69,7 +69,7 @@ export default function Footer() {
           className="text-white/30 text-xs pt-8"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
-          © 2025 Християнський Клуб Підприємців
+          © 2026 Християнський Клуб Підприємців
         </motion.p>
       </div>
     </footer>

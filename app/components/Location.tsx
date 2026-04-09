@@ -109,7 +109,7 @@ export default function Location() {
                   className="text-white/60 text-sm mt-0.5"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                 >
-                  18 квітня 2025, початок о 12:00
+                  18 квітня 2026, початок о 12:00
                 </p>
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function Location() {
             initial={{ opacity: 0, x: 32 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="rounded-2xl overflow-hidden border border-white/10"
+            className="relative rounded-2xl overflow-hidden border border-white/10"
             style={{ height: "240px" }}
           >
             <iframe
@@ -133,6 +133,20 @@ export default function Location() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
+            {/* Custom marker overlay */}
+            <div
+              className="pointer-events-none absolute left-1/2 top-1/2"
+              style={{ transform: "translate(-50%, -100%)" }}
+              aria-hidden="true"
+            >
+              <svg width="32" height="42" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 0C7.163 0 0 7.163 0 16c0 10.444 14.222 24.978 15.164 25.95a1.143 1.143 0 0 0 1.672 0C17.778 40.978 32 26.444 32 16 32 7.163 24.837 0 16 0Z"
+                  fill="#092750"
+                />
+                <circle cx="16" cy="16" r="6" fill="#A0C8DE" />
+              </svg>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { useRef } from "react";
 const stats = [
   { value: "3", label: "роки спільноти" },
   { value: "100+", label: "людей пройшли курси" },
-  { value: "1×", label: "зустріч на місяць" },
+  { value: "1x", label: "зустріч на місяць" },
 ];
 
 export default function Club() {
@@ -96,7 +96,7 @@ export default function Club() {
                   {stat.value}
                 </p>
                 <p
-                  className="mt-1 text-xs text-white/50 leading-tight"
+                  className="mt-1 text-xs text-white/50 leading-tight text-center"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                 >
                   {stat.label}
