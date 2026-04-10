@@ -11,6 +11,7 @@ const speakers = [
     initials: "ПУ",
     color: "#A0C8DE",
     image: "/speakers/павло-унгурян.jpg",
+    imagePosition: "center",
   },
   {
     name: "Юрій Бабинець",
@@ -18,6 +19,15 @@ const speakers = [
     initials: "ЮБ",
     color: "#828B1C",
     image: "/speakers/юрій-бабинець.jpg",
+    imagePosition: "center",
+  },
+  {
+    name: "Руслан Бруквенко",
+    topic: "Про щирі розмови, глибокі запитання та живі історії",
+    initials: "РБ",
+    color: "#A0C8DE",
+    image: "/speakers/руслан-бруквенко.jpg",
+    imagePosition: "0px bottom",
   },
 ];
 
@@ -55,7 +65,7 @@ function SpeakerCard({
             height={96}
             sizes="96px"
             quality={90}
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            style={{ objectFit: "cover", objectPosition: speaker.imagePosition ?? "center", width: "100%", height: "100%" }}
             onError={() => setImgError(true)}
           />
         ) : (

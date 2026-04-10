@@ -2,11 +2,29 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useCallback } from "react";
 
 const REGISTER_URL =
   "https://eventmate.app/events/share/ricnica-hristianskogo-klubu-pidpriemciv";
 
 export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
+  const [gradientStart, setGradientStart] = useState(60);
+
+  const handleImageLoad = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    const container = img.closest(".absolute") as HTMLElement;
+    if (!container) return;
+
+    const containerW = container.offsetWidth;
+    const containerH = container.offsetHeight;
+    const ratio = img.naturalWidth / img.naturalHeight;
+    const renderedH = containerW / ratio;
+    const pct = Math.min((renderedH / containerH) * 100, 100);
+    setGradientStart(Math.round(pct));
+  }, []);
+
+  const gradient = `linear-gradient(to bottom, transparent ${gradientStart - 20}%, #092750 ${gradientStart}%)`;
+
   return (
     <section className="relative flex flex-col justify-end overflow-hidden" style={{ minHeight: "100dvh" }}>
       {/* Full-screen background */}
@@ -17,19 +35,17 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
             alt="Hero background"
             fill
             priority
-            style={{ objectFit: "cover", objectPosition: "center" }}
+            onLoad={handleImageLoad}
+            style={{ objectFit: "contain", objectPosition: "top" }}
           />
         )}
       </div>
 
-      {/* Gradient overlay — transparent top → dark blue bottom */}
+      {/* Gradient overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 30%, rgba(9,39,80,0.7) 60%, #092750 100%)",
-        }}
+        style={{ background: gradient }}
       />
 
       {/* Content pinned to bottom */}
@@ -51,8 +67,8 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
           className="text-3xl leading-tight sm:text-4xl md:text-5xl text-white mb-4"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Християнському Клубу Підприємців<br />
-          <span className="text-accent-blue">3 роки</span>
+          Святкуємо 3 роки<br />
+          <span className="text-accent-blue">Християнського Клубу Підприємців</span>
         </motion.h1>
 
         <motion.p
