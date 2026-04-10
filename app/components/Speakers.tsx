@@ -53,6 +53,8 @@ function SpeakerCard({
             alt={speaker.name}
             width={96}
             height={96}
+            sizes="96px"
+            quality={90}
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
             onError={() => setImgError(true)}
           />

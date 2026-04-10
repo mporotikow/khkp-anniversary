@@ -153,6 +153,8 @@ export default function GalleryCarousel({ images }: { images: string[] }) {
                       src={src}
                       alt={`Галерея ${(i % N) + 1}`}
                       fill
+                      sizes="(max-width: 768px) 100vw, 896px"
+                      quality={90}
                       style={{ objectFit: "cover", objectPosition: "bottom" }}
                       draggable={false}
                     />
