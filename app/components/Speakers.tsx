@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 
 const speakers = [
   {
@@ -9,12 +10,14 @@ const speakers = [
     topic: "Про лідерство, відповідальність та вплив",
     initials: "ПУ",
     color: "#A0C8DE",
+    image: "/speakers/павло-унгурян.jpg",
   },
   {
     name: "Юрій Бабинець",
     topic: "Про віру, внутрішній стрижень та силу рішень",
     initials: "ЮБ",
     color: "#828B1C",
+    image: "/speakers/юрій-бабинець.jpg",
   },
 ];
 
@@ -27,6 +30,8 @@ function SpeakerCard({
   index: number;
   inView: boolean;
 }) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -35,14 +40,25 @@ function SpeakerCard({
       className="flex flex-col items-start gap-5 rounded-2xl border border-primary/10 bg-primary/5 p-8"
     >
       <div
-        className="w-24 h-24 rounded-full flex items-center justify-center text-2xl text-white"
+        className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center text-2xl text-white flex-shrink-0"
         style={{
           fontFamily: "var(--font-heading)",
           backgroundColor: speaker.color,
         }}
         aria-label={`Фото ${speaker.name}`}
       >
-        {speaker.initials}
+        {!imgError ? (
+          <Image
+            src={speaker.image}
+            alt={speaker.name}
+            width={96}
+            height={96}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          speaker.initials
+        )}
       </div>
 
       <div className="space-y-2">

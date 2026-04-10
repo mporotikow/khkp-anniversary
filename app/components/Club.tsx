@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const stats = [
   { value: "3", label: "роки спільноти" },
-  { value: "100+", label: "людей пройшли курси" },
+  { value: "100+", label: "підприємців щороку в клубі" },
   { value: "1x", label: "зустріч на місяць" },
 ];
 
@@ -65,12 +65,7 @@ export default function Club() {
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
               Раз на місяць ми зустрічаємося, щоб навчатися, надихатися та
-              підтримувати одне одного на підприємницькому шляху. За три роки
-              через наші курси та зустрічі пройшли{" "}
-              <span className="text-accent-blue font-medium">
-                понад 100 учасників
-              </span>
-              .
+              підтримувати одне одного на підприємницькому шляху.
             </p>
           </motion.div>
 
