@@ -101,7 +101,7 @@ export default function Speakers() {
             className="text-accent-olive text-sm uppercase tracking-widest"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            Гості вечора
+            Гості
           </span>
           <h2
             className="mt-3 text-2xl sm:text-3xl md:text-4xl text-primary"
