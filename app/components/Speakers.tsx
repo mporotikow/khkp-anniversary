@@ -27,7 +27,7 @@ const speakers = [
     initials: "РБ",
     color: "#A0C8DE",
     image: "/speakers/руслан-бруквенко.jpg",
-    imagePosition: "0px bottom",
+    imagePosition: "0px 20%",
   },
 ];
 
