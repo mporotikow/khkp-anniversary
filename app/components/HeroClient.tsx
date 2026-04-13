@@ -271,7 +271,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                         onChange={handleChange}
                         placeholder="Іван"
                         className="w-full rounded-xl border border-primary/15 px-4 py-3 text-sm text-primary placeholder:text-primary/30 outline-none focus:border-accent-blue transition-colors"
-                        style={{ fontFamily: "var(--font-body)" }}
+                        style={{ fontFamily: "var(--font-body)", fontSize: "16px" }}
                       />
                     </div>
 
@@ -292,7 +292,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                         onChange={handleChange}
                         placeholder="Петренко"
                         className="w-full rounded-xl border border-primary/15 px-4 py-3 text-sm text-primary placeholder:text-primary/30 outline-none focus:border-accent-blue transition-colors"
-                        style={{ fontFamily: "var(--font-body)" }}
+                        style={{ fontFamily: "var(--font-body)", fontSize: "16px" }}
                       />
                     </div>
 
@@ -318,7 +318,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                         }}
                         placeholder="+380"
                         className={`w-full rounded-xl border px-4 py-3 text-sm text-primary placeholder:text-primary/30 outline-none transition-colors ${phoneError ? "border-red-400 focus:border-red-400" : "border-primary/15 focus:border-accent-blue"}`}
-                        style={{ fontFamily: "var(--font-body)" }}
+                        style={{ fontFamily: "var(--font-body)", fontSize: "16px" }}
                       />
                       {phoneError && (
                         <p className="mt-1.5 text-xs text-red-500" style={{ fontFamily: "var(--font-body)" }}>
