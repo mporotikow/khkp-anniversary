@@ -8,6 +8,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
   const [gradientStart, setGradientStart] = useState(60);
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ firstName: "", lastName: "", phone: "" });
+  const [phoneError, setPhoneError] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleImageLoad = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
@@ -29,8 +30,39 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let val = e.target.value;
+
+    // Strip everything except digits and leading +
+    const digits = val.replace(/\D/g, "");
+
+    // Normalize to +380XXXXXXXXX
+    let normalized = "";
+    if (digits.startsWith("380")) {
+      normalized = "+" + digits.slice(0, 12);
+    } else if (digits.startsWith("80")) {
+      normalized = "+3" + digits.slice(0, 11);
+    } else if (digits.startsWith("0")) {
+      normalized = "+38" + digits.slice(0, 10);
+    } else if (digits.length > 0) {
+      normalized = "+" + digits.slice(0, 12);
+    } else {
+      normalized = val.startsWith("+") ? "+" : "";
+    }
+
+    setForm((prev) => ({ ...prev, phone: normalized }));
+    setPhoneError("");
+  };
+
+  const validatePhone = (phone: string) => /^\+380\d{9}$/.test(phone);
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validatePhone(form.phone)) {
+      setPhoneError("Введіть коректний номер у форматі +380XXXXXXXXX");
+      return;
+    }
     setStatus("loading");
     try {
       const res = await fetch("/api/register", {
@@ -48,6 +80,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
   const handleClose = () => {
     setOpen(false);
     setStatus("idle");
+    setPhoneError("");
     setForm({ firstName: "", lastName: "", phone: "" });
   };
 
@@ -277,11 +310,21 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                         type="tel"
                         required
                         value={form.phone}
-                        onChange={handleChange}
+                        onChange={handlePhoneChange}
+                        onBlur={() => {
+                          if (form.phone && !validatePhone(form.phone)) {
+                            setPhoneError("Введіть коректний номер у форматі +380XXXXXXXXX");
+                          }
+                        }}
                         placeholder="+380"
-                        className="w-full rounded-xl border border-primary/15 px-4 py-3 text-sm text-primary placeholder:text-primary/30 outline-none focus:border-accent-blue transition-colors"
+                        className={`w-full rounded-xl border px-4 py-3 text-sm text-primary placeholder:text-primary/30 outline-none transition-colors ${phoneError ? "border-red-400 focus:border-red-400" : "border-primary/15 focus:border-accent-blue"}`}
                         style={{ fontFamily: "var(--font-body)" }}
                       />
+                      {phoneError && (
+                        <p className="mt-1.5 text-xs text-red-500" style={{ fontFamily: "var(--font-body)" }}>
+                          {phoneError}
+                        </p>
+                      )}
                     </div>
 
                     {status === "error" && (
