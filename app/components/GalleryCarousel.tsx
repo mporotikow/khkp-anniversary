@@ -26,6 +26,7 @@ export default function GalleryCarousel({ images }: { images: string[] }) {
   const sectionRef = useRef(null);
   const trackRef   = useRef<HTMLDivElement>(null);
   const inView     = useInView(sectionRef, { once: true, margin: "-120px" });
+  const isDragging = useRef(false);
 
   const x         = useMotionValue(0);
   const slideWRef = useRef(0);
@@ -70,10 +71,24 @@ export default function GalleryCarousel({ images }: { images: string[] }) {
     }
   }, [x, N, OFFSET]);
 
+  // Block vertical scroll only while actively dragging horizontally
+  useEffect(() => {
+    const preventScroll = (e: TouchEvent) => {
+      if (isDragging.current) e.preventDefault();
+    };
+    document.addEventListener("touchmove", preventScroll, { passive: false });
+    return () => document.removeEventListener("touchmove", preventScroll);
+  }, []);
+
+  const handleDragStart = () => {
+    isDragging.current = true;
+  };
+
   const handleDragEnd = (
     _: unknown,
     info: { offset: { x: number }; velocity: { x: number } }
   ) => {
+    isDragging.current = false;
     const { offset, velocity } = info;
     if (offset.x < -40 || velocity.x < -150) {
       snapTo(indexRef.current + 1);
@@ -117,11 +132,12 @@ export default function GalleryCarousel({ images }: { images: string[] }) {
         <div className="overflow-hidden rounded-xl">
           <motion.div
             className="flex gap-3 cursor-grab active:cursor-grabbing select-none will-change-transform"
-            style={{ x, touchAction: "none" }}
+            style={{ x, touchAction: "pan-y" }}
             drag="x"
             dragConstraints={{ left: -99999, right: 99999 }}
             dragElastic={0}
             dragMomentum={false}
+            onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
           >
             {ITEMS.map((src, i) => {
