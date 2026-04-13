@@ -9,15 +9,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "All fields are required" }, { status: 400 });
   }
 
+  const data = { firstName: firstName.trim(), lastName: lastName.trim(), phone: phone.trim() };
+
+  // Save to PostgreSQL
   try {
     const db = await getDb();
     await db.query(
       "INSERT INTO registrations (first_name, last_name, phone) VALUES ($1, $2, $3)",
-      [firstName.trim(), lastName.trim(), phone.trim()]
+      [data.firstName, data.lastName, data.phone]
     );
-    return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("DB error:", err);
     return NextResponse.json({ error: "Failed to save" }, { status: 500 });
   }
+
+  // Push to Google Sheets (fire and forget — не блокуємо відповідь)
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  if (webhookUrl) {
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).catch((err) => console.error("Sheets webhook error:", err));
+  }
+
+  return NextResponse.json({ ok: true });
 }
