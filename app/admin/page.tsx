@@ -41,7 +41,7 @@ export default async function AdminPage({
     );
   }
 
-  const rows = await getRegistrations(secret);
+  const rows = await getRegistrations(secret ?? null);
 
   return (
     <div style={{ minHeight: "100vh", background: "#f5f5f5", fontFamily: "sans-serif", padding: "32px 24px" }}>
