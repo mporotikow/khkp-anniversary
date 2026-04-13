@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function PhoneFrame({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [isDesktop, setIsDesktop] = useState(false);
   const [scale, setScale] = useState(1);
 
@@ -16,6 +18,9 @@ export default function PhoneFrame({ children }: { children: React.ReactNode }) 
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, []);
+
+  // Admin — no frame
+  if (pathname.startsWith("/admin")) return <>{children}</>;
 
   // Mobile — full screen, normal scroll
   if (!isDesktop) {
