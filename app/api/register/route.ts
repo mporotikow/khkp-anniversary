@@ -23,14 +23,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Failed to save" }, { status: 500 });
   }
 
-  // Push to Google Sheets (fire and forget — не блокуємо відповідь)
+  // Push to Google Sheets via GET (fire and forget)
   const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
   if (webhookUrl) {
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    }).catch((err) => console.error("Sheets webhook error:", err));
+    const params = new URLSearchParams({
+      firstName: data.firstName,
+      lastName:  data.lastName,
+      phone:     data.phone,
+    });
+    fetch(`${webhookUrl}?${params}`).catch((err) =>
+      console.error("Sheets webhook error:", err)
+    );
   }
 
   return NextResponse.json({ ok: true });
