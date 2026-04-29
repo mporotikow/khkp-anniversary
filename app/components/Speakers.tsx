@@ -6,28 +6,28 @@ import Image from "next/image";
 
 const speakers = [
   {
-    name: "Павло Унгурян",
-    topic: "Про лідерство, відповідальність та вплив",
-    initials: "ПУ",
-    color: "#A0C8DE",
-    image: "/speakers/павло-унгурян.jpg",
-    imagePosition: "center",
-  },
-  {
-    name: "Юрій Бабинець",
-    topic: "Про віру, внутрішній стрижень та силу рішень",
-    initials: "ЮБ",
-    color: "#828B1C",
-    image: "/speakers/юрій-бабинець.jpg",
-    imagePosition: "center",
-  },
-  {
     name: "Руслан Бруквенко",
-    topic: "Про щирі розмови, глибокі запитання та живі історії",
+    topic: "Лідер ХКП, підприємець. Засновник логістичної компанії та благодійного фонду.",
     initials: "РБ",
     color: "#A0C8DE",
     image: "/speakers/руслан-бруквенко.jpg",
     imagePosition: "0px 20%",
+  },
+  {
+    name: "Павло Бойко",
+    topic: "Член правління ХКП. Державний службовець, служитель церкви, має досвід у публічному управлінні.",
+    initials: "ПБ",
+    color: "#828B1C",
+    image: "/speakers/павло-бойко.jpg",
+    imagePosition: "center",
+  },
+  {
+    name: "Сергій Долюк",
+    topic: "Член правління ХКП. Підприємець, адвокат, співвласник бізнесів у сфері технологій та енергетики.",
+    initials: "СД",
+    color: "#A0C8DE",
+    image: "/speakers/сергій-долюк.jpg",
+    imagePosition: "center",
   },
 ];
 
@@ -64,7 +64,7 @@ function SpeakerCard({
             width={96}
             height={96}
             sizes="96px"
-            quality={90}
+            unoptimized
             style={{ objectFit: "cover", objectPosition: speaker.imagePosition ?? "center", width: "100%", height: "100%" }}
             onError={() => setImgError(true)}
           />

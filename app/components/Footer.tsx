@@ -32,14 +32,13 @@ export default function Footer() {
             className="mt-3 text-3xl sm:text-4xl md:text-5xl leading-tight text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Зустрінемося<br />
-            <span className="text-accent-blue">18 квітня</span>
+            Ставайте частиною спільноти підприємців, які розвиваються та впливають
           </h2>
           <p
             className="mt-6 text-white/60 text-base max-w-sm"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            Київ, проспект Берестейський 114/2<br />початок о 12:00
+            <span className="text-accent-blue">23 травня · 12:00</span><br />Київ, проспект Берестейський 114/2
           </p>
         </motion.div>
 

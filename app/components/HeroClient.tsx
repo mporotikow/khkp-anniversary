@@ -95,6 +95,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
               alt="Hero background"
               fill
               priority
+              unoptimized
               onLoad={handleImageLoad}
               style={{ objectFit: "contain", objectPosition: "top" }}
             />
@@ -117,8 +118,8 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
             className="inline-block border border-accent-blue/40 rounded-full px-4 py-1.5 text-accent-blue text-sm mb-5"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            18 квітня · 12:00
-          </motion.div>
+            23 травня · 12:00
+</motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
@@ -127,8 +128,8 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
             className="text-3xl leading-tight sm:text-4xl md:text-5xl text-white mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Святкуємо 3 роки<br />
-            <span className="text-accent-blue">Християнського Клубу Підприємців</span>
+            Зустріч Християнського<br />
+            <span className="text-accent-blue">Клубу Підприємців</span>
           </motion.h1>
 
           <motion.p
@@ -235,7 +236,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                     className="text-sm text-primary/60"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                   >
-                    Ваша реєстрація прийнята. До зустрічі 18 квітня!
+                    Ваша реєстрація прийнята. До зустрічі 23 травня!
                   </p>
                 </div>
               ) : (
@@ -250,7 +251,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                     className="text-sm text-primary/50 mb-6"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                   >
-                    18 квітня · 12:00 · Київ
+                    23 травня · 12:00 · Київ
                   </p>
 
                   <form onSubmit={handleSubmit} className="flex flex-col gap-4">
