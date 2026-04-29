@@ -95,7 +95,6 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
               alt="Hero background"
               fill
               priority
-              unoptimized
               onLoad={handleImageLoad}
               style={{ objectFit: "contain", objectPosition: "top" }}
             />

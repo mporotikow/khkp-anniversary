@@ -10,7 +10,7 @@ const speakers = [
     topic: "Лідер ХКП, підприємець. Засновник логістичної компанії та благодійного фонду.",
     initials: "РБ",
     color: "#A0C8DE",
-    image: "/speakers/руслан-бруквенко.jpg",
+    image: "/speakers/ruslan.jpg",
     imagePosition: "0px 20%",
   },
   {
@@ -18,7 +18,7 @@ const speakers = [
     topic: "Член правління ХКП. Державний службовець, служитель церкви, має досвід у публічному управлінні.",
     initials: "ПБ",
     color: "#828B1C",
-    image: "/speakers/павло-бойко.jpg",
+    image: "/speakers/pavlo.jpg",
     imagePosition: "center",
   },
   {
@@ -26,7 +26,7 @@ const speakers = [
     topic: "Член правління ХКП. Підприємець, адвокат, співвласник бізнесів у сфері технологій та енергетики.",
     initials: "СД",
     color: "#A0C8DE",
-    image: "/speakers/сергій-долюк.jpg",
+    image: "/speakers/serhiy.jpg",
     imagePosition: "center",
   },
 ];
