@@ -38,7 +38,7 @@ export default function Footer() {
             className="mt-6 text-white/60 text-base max-w-sm"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            <span className="text-accent-blue">23 травня · 12:00</span><br />Київ, проспект Берестейський 114/2
+            <span className="text-accent-blue">20 червня · 12:00</span><br />Київ, проспект Берестейський 114/2
           </p>
         </motion.div>
 

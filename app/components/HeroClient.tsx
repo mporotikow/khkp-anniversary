@@ -117,7 +117,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
             className="inline-block border border-accent-blue/40 rounded-full px-4 py-1.5 text-accent-blue text-sm mb-5"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            23 травня · 12:00
+            20 червня · 12:00
 </motion.div>
 
           <motion.h1
@@ -235,7 +235,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                     className="text-sm text-primary/60"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                   >
-                    Ваша реєстрація прийнята. До зустрічі 23 травня!
+                    Ваша реєстрація прийнята. До зустрічі 20 червня!
                   </p>
                 </div>
               ) : (
@@ -250,7 +250,7 @@ export default function HeroClient({ imageSrc }: { imageSrc: string | null }) {
                     className="text-sm text-primary/50 mb-6"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                   >
-                    23 травня · 12:00 · Київ
+                    20 червня · 12:00 · Київ
                   </p>
 
                   <form onSubmit={handleSubmit} className="flex flex-col gap-4">

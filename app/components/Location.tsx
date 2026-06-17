@@ -115,7 +115,7 @@ export default function Location() {
                   className="text-white/60 text-sm mt-0.5"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                 >
-                  23 травня 2026, початок о 12:00
+                  20 червня 2026, початок о 12:00
                 </p>
               </div>
             </div>
