@@ -125,6 +125,12 @@ export default function GalleryCarousel({ images }: { images: string[] }) {
           >
             Галерея
           </h2>
+          <p
+            className="mt-3 text-primary/50 text-sm"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          >
+            Живі зустрічі, спілкування, знайомства та атмосфера спільноти.
+          </p>
         </motion.div>
       </div>
 

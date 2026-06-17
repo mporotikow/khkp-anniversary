@@ -53,19 +53,35 @@ export default function Club() {
               className="text-white/80 text-base leading-relaxed"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Християнський Клуб Підприємців — це спільнота людей, які будують
-              бізнес на фундаменті{" "}
+              Християнський Клуб Підприємців — це спільнота людей, які розвивають
+              бізнес на основі{" "}
               <span className="text-accent-blue font-medium">
                 християнських цінностей
               </span>
-              : чесності, відповідальності та служіння.
+              .
             </p>
             <p
               className="text-white/80 text-base leading-relaxed"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Раз на місяць ми зустрічаємося, щоб навчатися, надихатися та
-              підтримувати одне одного на підприємницькому шляху.
+              Ми зустрічаємось раз на місяць, щоб:
+            </p>
+            <ul
+              className="text-white/80 text-base leading-relaxed space-y-1 pl-1"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            >
+              {["зростати у лідерстві", "будувати партнерства", "підтримувати один одного", "впливати на суспільство"].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="text-accent-blue mt-1">—</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p
+              className="text-white/80 text-base leading-relaxed"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            >
+              Протягом року ми проводимо зустрічі, навчання, виїзди та бізнес-семінари.
             </p>
           </motion.div>
 

@@ -14,20 +14,12 @@ const speakers = [
     imagePosition: "0px 20%",
   },
   {
-    name: "Павло Бойко",
-    topic: "Член правління ХКП. Державний службовець, служитель церкви, має досвід у публічному управлінні.",
-    initials: "ПБ",
+    name: "Федор Герасімов",
+    topic: "Пастор, глава християнської місії «Нове життя», м. Одеса. Керівник проекта «Допоможемо вижити».",
+    initials: "ФГ",
     color: "#828B1C",
-    image: "/speakers/pavlo.jpg",
-    imagePosition: "center",
-  },
-  {
-    name: "Сергій Долюк",
-    topic: "Член правління ХКП. Підприємець, адвокат, співвласник бізнесів у сфері технологій та енергетики.",
-    initials: "СД",
-    color: "#A0C8DE",
-    image: "/speakers/serhiy.jpg",
-    imagePosition: "center",
+    image: "/speakers/fedor.jpg",
+    imagePosition: "50% 15%",
   },
 ];
 

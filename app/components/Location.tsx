@@ -78,6 +78,12 @@ export default function Location() {
                 >
                   Київ, проспект Берестейський 114/2
                 </p>
+                <p
+                  className="text-white/40 text-xs mt-1.5"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+                >
+                  Зручна локація для зустрічі, спілкування та якісного проведення часу.
+                </p>
               </div>
             </div>
 
@@ -109,7 +115,7 @@ export default function Location() {
                   className="text-white/60 text-sm mt-0.5"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                 >
-                  18 квітня 2026, початок о 12:00
+                  23 травня 2026, початок о 12:00
                 </p>
               </div>
             </div>
